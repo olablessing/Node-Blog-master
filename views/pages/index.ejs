@@ -1,0 +1,55 @@
+<%- contentFor('content') %>
+
+<% data.forEach( post => { %>
+
+    <% let publisher = post.publisher[0]; %>
+
+    <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
+    
+          <!-- Title -->
+          <h1 class="mt-4"><%-post.title %></h1>
+
+          <div style="float:right;margin-top:-20px;">
+            <img src="<%-publisher.avatar%>" alt="" srcset="" class="img-responsive rounded-circle" style="max-height:50px;">
+          </div>
+    
+          <!-- Author -->
+          <p class="lead">
+            by
+            <a href="#"><%-publisher.email %></a>
+          </p>
+    
+          <hr>
+    
+          <!-- Date/Time -->
+          <p>Posted on <%-post.date_create %></p>
+    
+          <hr>
+    
+          <!-- Preview Image -->
+          <img class="img-fluid rounded" src="<%-post.image %>" alt="">
+    
+          <hr>
+    
+          <!-- Post Content -->
+          <div id="post-content">
+            <%=post.content %>
+          </div>
+    
+          <hr>
+    
+          <a href="/post/<%-post._id%>">
+            <button class="btn btn-sm btn-secondary">
+              See Post Details
+            </button>
+          </a>
+
+        </div>
+    
+    
+    </div>
+
+<% }); %>
